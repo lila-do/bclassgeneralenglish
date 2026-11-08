@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#080f20" />
+  <meta name="description" content="An offline two-team film challenge about The Terminal, English as a global language, immigration, and human connection." />
+  <title>Learning through movies - The Terminal | The Boarding Pass Challenge</title>
+  <style>
+/* SELF-CONTAINED GAME STYLES — EDIT AS YOU WISH */
+:root{color-scheme:dark;--bg:#071222;--panel:#10223b;--line:rgba(180,218,237,.15);--cream:#fbfaf6;--ink:#10243a;--sun:#ffd167;--aqua:#67e4d3;--pink:#ff8fa3}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;color:#fff;background:radial-gradient(ellipse 60% 36% at 92% 4%,rgba(47,173,189,.18),transparent),radial-gradient(ellipse 60% 36% at 7% 42%,rgba(255,139,113,.10),transparent),var(--bg);font-family:Inter,"Avenir Next","Segoe UI",ui-sans-serif,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background-image:linear-gradient(to right,rgba(118,176,198,.035) 1px,transparent 1px),linear-gradient(to bottom,rgba(118,176,198,.025) 1px,transparent 1px);background-size:65px 65px}
+button,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible{outline:3px solid var(--sun);outline-offset:3px}[hidden]{display:none!important}
+.shell{max-width:1500px;margin:0 auto;padding:0 clamp(16px,3vw,50px)}
+.topbar{min-height:88px;display:flex;gap:18px;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:12px;min-width:0}.brand-icon{width:44px;height:44px;background:var(--sun);color:#17283c;border-radius:13px;display:grid;place-items:center;font-size:27px;transform:rotate(-6deg);box-shadow:0 5px 0 rgba(255,209,103,.15)}.brand-copy{min-width:0}.brand-label{font-size:9px;letter-spacing:.24em;color:#8fb5cb;font-weight:1000;display:block;margin-bottom:6px}.brand-label span{color:#ffd167;margin:0 5px}.brand strong{font-size:clamp(14px,1.35vw,18px);line-height:1.2;font-weight:900;letter-spacing:.01em}
+.actions{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}.nav-btn{border:1px solid rgba(170,213,235,.18);border-radius:10px;background:rgba(255,255,255,.05);color:#f3faff;font-size:12px;font-weight:850;padding:11px 12px;white-space:nowrap;transition:.15s}.nav-btn:hover{background:rgba(255,255,255,.12);transform:translateY(-1px)}.nav-btn[aria-pressed="true"]{border-color:rgba(103,228,211,.36)}.nav-btn-danger{color:#ffbdc4}
+.hero{position:relative;display:flex;align-items:center;justify-content:space-between;gap:40px;padding:38px 0 31px;min-height:275px}.hero-main{max-width:840px;position:relative;z-index:1}.hero-kicker{color:#b5cfe0;font-size:10px;font-weight:950;letter-spacing:.19em;display:flex;align-items:center;gap:9px;flex-wrap:wrap}.blink-dot{height:8px;width:8px;border-radius:50%;background:#a8faab;box-shadow:0 0 0 5px rgba(168,250,171,.09);animation:blink 2.1s ease-in-out infinite}.slash{color:#67859e}.level{background:rgba(255,209,103,.13);border:1px solid rgba(255,209,103,.25);color:#ffe29f;padding:4px 7px;border-radius:5px;letter-spacing:.08em}
+.hero h1{font-family:Impact,"Arial Black",ui-sans-serif,sans-serif;font-size:clamp(45px,5.3vw,79px);letter-spacing:.01em;line-height:.99;margin:16px 0 17px;font-weight:1000;text-shadow:0 10px 24px rgba(0,0,0,.2)}.hero h1 em{font-style:normal;color:var(--sun)}.hero p{font-size:14px;line-height:1.7;color:#c0d2df;max-width:680px;margin:0 0 18px}.hero p strong{color:#fff}.hero-tags{display:flex;flex-wrap:wrap;gap:7px}.hero-tags span{font-size:10px;font-weight:900;letter-spacing:.08em;padding:8px 11px;border:1px solid rgba(161,206,231,.18);background:rgba(255,255,255,.055);border-radius:40px}
+.boarding-card{flex:0 0 320px;width:320px;transform:rotate(6deg);background:#edeee8;color:#203248;border-radius:15px;box-shadow:0 19px 35px rgba(0,0,0,.35),0 0 0 4px rgba(255,255,255,.055);padding:17px 20px 0;position:relative;overflow:hidden}.boarding-card::after{content:"";position:absolute;width:80px;height:80px;border:7px solid rgba(56,111,133,.15);border-radius:50%;right:-31px;top:-28px}.ticket-top{display:flex;justify-content:space-between;letter-spacing:.18em;font-weight:950;font-size:9px;color:#52697b}.ticket-route{display:flex;align-items:center;justify-content:space-between;margin:18px 0 9px}.ticket-route>div:not(.route-mark){display:flex;flex-direction:column}.ticket-route small,.ticket-bottom small{font-size:9px;letter-spacing:.16em;font-weight:900;color:#8ca0a9}.ticket-route b{font-family:Impact,"Arial Black",sans-serif;font-size:55px;letter-spacing:.01em;line-height:1.15}.ticket-route span{font-size:9px;letter-spacing:.08em;font-weight:900}.route-mark{font-size:26px;color:#25b8bb;position:relative;align-self:center}.route-mark i{position:absolute;top:15px;left:-33px;width:90px;height:1px;border-top:2px dashed #7babb3;z-index:-1}.ticket-line{border-top:2px dashed #b8c5c9;margin:13px -20px}.ticket-bottom{display:flex;justify-content:space-between;gap:9px}.ticket-bottom>div{display:flex;flex-direction:column;gap:5px}.ticket-bottom strong{font-size:14px}.status-live{color:#089b91}.ticket-code{height:22px;text-align:center;letter-spacing:.18em;color:#546a75;font-size:17px;font-weight:950;line-height:22px;margin:12px -20px 0;background:#dce5e2;opacity:.82}
+.score-heading{margin:0 0 13px;display:flex;justify-content:space-between;align-items:end;gap:20px}.overline{font-size:10px;letter-spacing:.2em;font-weight:950;color:#89adc1}.board-led{display:inline-block;width:7px;height:7px;border-radius:50%;background:#b9f69c;margin-left:3px}.score-heading h2{font-family:Impact,"Arial Black",sans-serif;font-size:32px;margin:5px 0 0;letter-spacing:.035em;line-height:1}.score-heading h2 em{font-style:normal;color:var(--sun)}.overview-stats{display:flex;align-items:center;gap:12px}.stat{text-align:right;padding-right:12px;border-right:1px solid rgba(255,255,255,.12)}.stat>span{display:block;font-size:9px;letter-spacing:.15em;font-weight:900;color:#88abc0}.stat strong{display:block;margin-top:4px;font-size:23px;font-weight:1000;font-variant-numeric:tabular-nums}.stat strong b{font-size:23px}.stat strong small{font-size:12px;color:#92a9bb}.live-badge{border:1px solid rgba(120,222,175,.24);border-radius:100px;background:rgba(70,182,125,.09);color:#a4e9cb;font-size:10px;font-weight:950;letter-spacing:.10em;padding:10px 11px;white-space:nowrap}.live-badge span{color:#84f39b;margin-right:5px}
+.game-board{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.lane{--accent:var(--aqua);--pale:#dbfff5;position:relative;min-width:0;background:linear-gradient(150deg,#152c47,#0d2038 75%);border:1px solid rgba(190,227,244,.24);border-top:5px solid var(--accent);border-radius:19px;box-shadow:0 19px 40px rgba(0,0,0,.2);overflow:hidden;display:flex;flex-direction:column}.lane[data-team="1"]{--accent:var(--pink);--pale:#ffecf0}.lane::before{content:"";position:absolute;right:-60px;top:-70px;height:215px;width:215px;border-radius:50%;border:1px solid rgba(255,255,255,.08);pointer-events:none}
+.lane-header{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:20px 23px 12px}.gate-identity{display:flex;align-items:center;gap:13px;min-width:0}.gate-icon{width:53px;height:53px;border-radius:14px;display:grid;place-items:center;background:var(--accent);color:#10283a;font-family:Impact,"Arial Black",sans-serif;font-size:27px;box-shadow:0 5px 0 rgba(0,0,0,.16)}.gate-label{font-size:10px;font-weight:1000;color:var(--accent);letter-spacing:.19em;display:block;margin-bottom:3px}.team-name{min-width:0;width:min(28vw,330px);border:1px solid transparent;border-radius:7px;background:transparent;color:white;font-weight:1000;font-size:22px;padding:1px 4px;margin-left:-4px;text-overflow:ellipsis;outline:none}.team-name:hover,.team-name:focus{border-color:rgba(255,255,255,.35);background:rgba(255,255,255,.09)}.team-score{text-align:right;flex:0 0 auto}.team-score strong{font-family:Impact,"Arial Black",sans-serif;font-size:44px;color:var(--accent);line-height:.9}.team-score span{display:block;font-size:10px;font-weight:900;letter-spacing:.12em;color:#adc0d1;margin-top:7px}
+.lane-track{padding:0 23px 16px}.track-caption{display:flex;justify-content:space-between;align-items:center;font-size:9px;color:#96b3c6;letter-spacing:.15em;font-weight:1000;margin-bottom:9px}.track-caption b{color:#fff}.tile-grid{display:grid;grid-template-columns:repeat(15,minmax(0,1fr));gap:5px}.tile{height:35px;border:1px solid rgba(167,205,225,.2);background:rgba(255,255,255,.045);border-radius:6px;display:grid;place-items:center;color:#829bb0;font-size:10px;font-weight:900;position:relative}.tile.done{background:var(--accent);border-color:var(--accent);color:#10243a}.tile.done span{display:none}.tile.done::after{content:"✓";font-size:14px}.tile.current{border:2px solid var(--accent);color:var(--accent);background:rgba(255,255,255,.1);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 14%,transparent);animation:tileGlow 2s infinite}.tile.finish{border-color:rgba(255,211,117,.45)}
+.question-wrap{padding:0 15px 14px;flex:1;display:flex}.question-panel{min-height:316px;flex:1;display:flex;flex-direction:column;background:var(--cream);color:var(--ink);border-radius:15px;padding:21px 23px;box-shadow:inset 0 0 0 1px #fff,0 4px 15px rgba(0,0,0,.11)}.question-top{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:13px}.question-type{background:var(--pale);padding:7px 9px;border-radius:6px;color:#25455c;font-size:10px;letter-spacing:.1em;font-weight:1000}.question-num{font-size:11px;font-weight:1000;color:#82919f;white-space:nowrap}.topic-label{font-size:10px;font-weight:950;letter-spacing:.16em;color:#778c9a;margin-bottom:8px}.question{font-size:clamp(18px,1.7vw,24px);line-height:1.27;font-weight:1000;letter-spacing:-.025em;margin:0 0 22px;overflow-wrap:anywhere}.answers{margin-top:auto;display:grid;gap:9px}.answer-btn{min-height:56px;border:1.5px solid #d8e0e5;border-radius:11px;padding:9px 13px;background:white;color:#263e52;display:flex;align-items:center;text-align:left;gap:12px;font-size:14px;font-weight:850;line-height:1.3;transition:background .14s,border-color .14s,transform .14s}.answer-btn:hover:not(:disabled){border-color:var(--accent);background:var(--pale);transform:translateY(-1px)}.answer-key{flex:0 0 30px;height:30px;width:30px;display:grid;place-items:center;border-radius:8px;background:#e7edf1;color:#20384b;font-weight:1000}.answer-btn.right{background:#dff9e9;border-color:#4ac37b;color:#186c44}.answer-btn.right .answer-key{background:#44c27c;color:white}.answer-btn.wrong{background:#ffe6e7;border-color:#e97e87;color:#a43446}.answer-btn.wrong .answer-key{background:#e96f7e;color:white}.answer-btn:disabled{opacity:1}.answer-btn.wrong{animation:shake .35s}
+.feedback{background:#e4f7ee;color:#245c43;margin-top:11px;padding:10px 12px;border-radius:8px;line-height:1.42;font-size:12px;font-weight:700}.feedback strong{display:block;margin-bottom:2px;font-size:12px}.feedback.bad{background:#fff0e9;color:#824242}.finished{justify-content:center;align-items:center;text-align:center;background:linear-gradient(130deg,#e6fff2,#fefefc)}.finish-icon{font-size:65px;margin-bottom:8px}.finished h3{font-size:29px;margin:0 0 8px;color:#146842;font-weight:1000}.finished p{font-size:14px;line-height:1.5;color:#456c5b;margin:0}.frozen{opacity:.62}
+.lane-footer{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:13px 23px 16px;border-top:1px dashed rgba(190,226,244,.19);font-size:10px;font-weight:900;color:#9cbbcf;letter-spacing:.13em}.lane-footer strong{color:white;font-size:14px;letter-spacing:0}.retry-count{color:#bed1dc}.retry-count b{color:var(--accent)}
+.teacher-strip{display:flex;gap:13px;align-items:center;margin:16px 0 28px;padding:14px 17px;border:1px solid var(--line);border-radius:11px;background:rgba(255,255,255,.045)}.strip-icon{font-size:24px}.teacher-strip p{margin:0;flex:1;font-size:12px;color:#b3c9d7;line-height:1.65}.teacher-strip strong{color:white}.teacher-strip button{padding:0;border:0;background:none;color:#ffe297;font-weight:1000;text-decoration:underline}.strip-code{font-size:10px;white-space:nowrap;color:#8ea8bb;font-weight:1000;letter-spacing:.13em}
+.footer{border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:15px;padding:25px 0 34px;color:#92abbe}.footer>span{font-size:10px;letter-spacing:.13em;font-weight:900}.footer>span span{color:var(--sun)}.footer strong{text-align:right;font-size:12px;color:#d2e2eb;font-weight:750}
+.dialog{background:transparent;border:0;padding:0;max-width:min(610px,calc(100vw - 32px));width:100%;color:#1e344a;box-shadow:0 30px 90px rgba(0,0,0,.5)}.dialog::backdrop{background:rgba(2,10,23,.84);backdrop-filter:blur(9px)}.dialog-panel{position:relative;background:#f8f9f6;border-radius:22px;padding:33px 37px;max-height:calc(100vh - 40px);overflow:auto}.dialog-close{position:absolute;right:19px;top:19px;border:0;border-radius:10px;background:#e8edf0;width:36px;height:36px;color:#334b60;font-weight:900}.dialog-label{font-size:10px;font-weight:1000;letter-spacing:.18em;color:#327c87;margin-bottom:8px}.dialog-label span{color:#ed916d}.dialog h2{font-family:Impact,"Arial Black",sans-serif;font-size:46px;letter-spacing:.015em;line-height:1;margin:0 0 15px}.dialog h2 em{font-style:normal;color:#ee986a}.dialog-lead{font-size:13px;line-height:1.65;color:#5f7282;margin:0 0 18px}.rule-list{list-style:none;margin:0;padding:0}.rule-list li{display:flex;gap:13px;align-items:flex-start;margin:16px 0}.rule-list li>span{flex:0 0 33px;height:33px;display:grid;place-items:center;background:#dcf5f1;color:#237b78;border-radius:8px;font-size:12px;font-weight:1000}.rule-list strong{font-size:14px}.rule-list p{font-size:12px;line-height:1.55;color:#627586;margin:3px 0}.dialog-tip{background:#fff1d0;border-radius:9px;padding:12px 14px;font-size:12px;line-height:1.5;margin:21px 0}.dialog-actions{display:flex;justify-content:flex-end;gap:10px;flex-wrap:wrap}.dialog-actions.between{justify-content:space-between}.primary-btn,.secondary-btn{border:0;border-radius:10px;padding:12px 17px;font-size:13px;font-weight:1000}.primary-btn{background:var(--sun);color:#173048;box-shadow:0 3px 0 #e9ab44}.primary-btn:hover{background:#ffe28a}.secondary-btn{background:#e3ecef;color:#2c5066}.secondary-btn:hover{background:#d4e3e7}
+.debate-card{background:linear-gradient(145deg,#153755,#0d2844);color:white;border-radius:16px;padding:23px 25px;margin:20px 0;min-height:210px;display:flex;flex-direction:column}.debate-meta{display:flex;justify-content:space-between;font-size:10px;font-weight:950;letter-spacing:.15em;color:#79e8d7}.debate-card p{font-size:21px;line-height:1.4;font-weight:850;margin:25px 0;flex:1}.debate-nudge{font-size:9px;letter-spacing:.16em;font-weight:950;color:#b9d2e3}
+.winner-overlay{position:fixed;inset:0;z-index:50;background:rgba(2,11,25,.92);display:grid;place-items:center;overflow:auto;padding:20px;backdrop-filter:blur(10px)}.winner-panel{z-index:2;position:relative;width:100%;max-width:620px;border:2px solid #ffda7d;border-radius:22px;background:radial-gradient(circle at 50% 3%,#2a5261,#112743 54%,#0b213c);box-shadow:0 0 100px rgba(255,200,80,.18);padding:34px 26px 30px;text-align:center;animation:popIn .4s ease-out}.winner-pretitle{color:#ffe094;font-size:11px;letter-spacing:.22em;font-weight:1000}.winner-cup{font-size:90px;margin:7px 0;filter:drop-shadow(0 14px 12px rgba(0,0,0,.3));animation:bounce 1.7s ease-in-out infinite}.winner-panel h2{font-family:Impact,"Arial Black",sans-serif;font-size:clamp(46px,6vw,64px);line-height:.98;margin:8px 0 17px;letter-spacing:.02em}.winner-panel h2 em{font-style:normal;color:var(--sun)}.win-team{display:inline-block;max-width:100%;overflow-wrap:anywhere;transform:rotate(-2deg);background:var(--sun);color:#163048;padding:11px 22px;font-size:25px;font-weight:1000;border-radius:6px;box-shadow:5px 6px 0 rgba(0,0,0,.22)}.winner-panel>p{font-size:14px;color:#c5d8e7;line-height:1.7;max-width:430px;margin:20px auto}.win-scores{display:flex;justify-content:center;gap:10px;margin-bottom:24px;flex-wrap:wrap}.win-score{border:1px solid rgba(255,255,255,.19);background:rgba(255,255,255,.06);border-radius:9px;padding:9px 13px;font-size:12px;color:#d2e6ef}.win-score strong{color:white;font-size:15px}.winner-actions{display:flex;gap:11px;justify-content:center}.winner-actions .secondary-btn{background:#2d4e68;color:#e8f1f8}.confetti{position:absolute;inset:0;pointer-events:none;overflow:hidden}.confetti-bit{position:absolute;top:-25px;width:10px;height:18px;animation:fall linear infinite;opacity:.95}
+.screenreader{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+@keyframes blink{50%{opacity:.5}}@keyframes tileGlow{50%{box-shadow:0 0 0 6px color-mix(in srgb,var(--accent) 12%,transparent)}}@keyframes shake{25%{transform:translateX(-3px)}50%{transform:translateX(3px)}75%{transform:translateX(-2px)}}@keyframes popIn{from{transform:scale(.85);opacity:0}to{transform:scale(1);opacity:1}}@keyframes bounce{50%{transform:translateY(-7px) rotate(3deg)}}@keyframes fall{to{transform:translate3d(130px,110vh,0) rotate(850deg)}}
+body.board-view .hero{display:none}body.board-view .topbar{min-height:69px}body.board-view .score-heading{margin:18px 0 12px}body.board-view .lane-header{padding-top:15px;padding-bottom:9px}body.board-view .lane-track{padding-bottom:10px}body.board-view .question-panel{min-height:280px}body.board-view .question{font-size:21px}body.board-view .tile{height:29px}
+@media(max-width:1180px){.boarding-card{flex-basis:260px;width:260px;transform:rotate(5deg) scale(.9);transform-origin:center right}.hero h1{font-size:clamp(48px,5.5vw,68px)}.nav-btn{padding:10px}.brand strong{font-size:14px}.tile-grid{grid-template-columns:repeat(5,minmax(0,1fr))}.tile{height:24px}.question{font-size:20px}}
+@media(max-width:900px){.topbar{align-items:flex-start;flex-direction:column;padding:17px 0;gap:14px}.actions{justify-content:flex-start}.hero{min-height:unset}.boarding-card{display:none}.game-board{grid-template-columns:1fr}.tile-grid{grid-template-columns:repeat(15,minmax(0,1fr))}.tile{height:35px}.team-name{width:min(55vw,400px)}.question-panel{min-height:285px}.question{font-size:24px}.score-heading{align-items:center}.hero h1{font-size:clamp(48px,8vw,72px)}}
+@media(max-width:600px){.shell{padding:0 13px}.brand-icon{height:40px;width:40px;flex:0 0 40px}.brand strong{font-size:13px}.brand-label{font-size:8px}.actions{gap:5px}.nav-btn{font-size:11px;padding:9px}.nav-btn span{display:none}.hero{padding:30px 0 24px}.hero h1{font-size:clamp(41px,10vw,61px)}.hero-kicker{font-size:9px;letter-spacing:.1em}.hero p{font-size:13px}.hero-tags span{font-size:9px}.score-heading{flex-direction:column;align-items:flex-start;gap:12px}.overview-stats{width:100%;justify-content:space-between}.score-heading h2{font-size:29px}.lane-header{padding:17px 15px 11px}.gate-icon{width:42px;height:42px;font-size:23px}.team-name{font-size:17px;width:min(52vw,260px)}.team-score strong{font-size:35px}.lane-track{padding:0 15px 11px}.tile-grid{grid-template-columns:repeat(5,minmax(0,1fr))}.tile{height:30px}.question-wrap{padding:0 10px 10px}.question-panel{padding:16px;min-height:300px}.question{font-size:19px}.answer-btn{font-size:12px}.lane-footer{padding:12px 15px}.teacher-strip{flex-wrap:wrap}.strip-code{margin-left:38px}.footer{flex-direction:column;align-items:flex-start}.footer strong{text-align:left}.dialog-panel{padding:28px 22px}.dialog h2{font-size:38px}.debate-card p{font-size:19px}.winner-panel{padding:26px 15px}.winner-cup{font-size:74px}.win-team{font-size:21px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}
+
+</style>
+  
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-icon" aria-hidden="true">✈</div>
+        <div class="brand-copy">
+          <span class="brand-label">ENGLISH FILM CLUB <span>◆</span> FLIGHT 015</span>
+          <strong>Learning through movies - The Terminal</strong>
+        </div>
+      </div>
+      <nav class="actions" aria-label="Game controls">
+        <button id="rules-open" class="nav-btn" type="button">ⓘ <span>Briefing</span></button>
+        <button id="debate-open" class="nav-btn" type="button">◈ <span>Debate lounge</span></button>
+        <button id="sound-toggle" class="nav-btn" type="button" aria-pressed="true">♫ <span>Sound on</span></button>
+        <button id="view-toggle" class="nav-btn" type="button" aria-pressed="false">▣ <span>Board view</span></button>
+        <button id="reset-open" class="nav-btn nav-btn-danger" type="button">↻ <span>Reset</span></button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-main">
+          <div class="hero-kicker"><span class="blink-dot"></span> AFTER THE CREDITS <span class="slash">/</span> TWO-TEAM MOVIE CHALLENGE <span class="level">B2–C1</span></div>
+          <h1 id="hero-title">YOUR ENGLISH.<br><em>YOUR BOARDING PASS.</em></h1>
+          <p>One terminal. Two rival gates. Thirty high-stakes questions. Race through the film’s twists, language barriers and moral dilemmas. <strong>First team to clear all 15 wins.</strong></p>
+          <div class="hero-tags"><span>🌍 GLOBAL ENGLISH</span><span>🛂 BORDERS &amp; BELONGING</span><span>🎬 FILM DETECTIVES</span></div>
+        </div>
+        <div class="boarding-card" aria-hidden="true">
+          <div class="ticket-top"><span>THE TERMINAL</span><span>ONE WAY ✦</span></div>
+          <div class="ticket-route"><div><small>FROM</small><b>KRK</b><span>KRAKOZHIA</span></div><div class="route-mark">✈<i></i></div><div><small>TO</small><b>NYC</b><span>NEW YORK</span></div></div>
+          <div class="ticket-line"></div>
+          <div class="ticket-bottom"><div><small>GATE</small><strong>A / B</strong></div><div><small>CHALLENGES</small><strong>15</strong></div><div><small>STATUS</small><strong class="status-live">BOARDING</strong></div></div>
+          <div class="ticket-code">|||| || |||| | ||| |||| ||</div>
+        </div>
+      </section>
+
+      <section class="score-heading" aria-label="Race overview">
+        <div><span class="overline">DEPARTURES BOARD <span class="board-led"></span> NOW BOARDING</span><h2>THE FINAL <em>CALL</em></h2></div>
+        <div class="overview-stats"><div class="stat"><span>ELAPSED</span><strong id="timer">00:00</strong></div><div class="stat"><span>CLEARED</span><strong><b id="total-score">0</b><small> / 30</small></strong></div><div class="live-badge"><span>●</span> RACE LIVE</div></div>
+      </section>
+
+      <section id="game-board" class="game-board" aria-label="Two team race lanes"></section>
+
+      <div class="teacher-strip"><span class="strip-icon">💡</span><p><strong>Teacher's move:</strong> Have teams justify their choice in English before pressing A or B. Wrong answers trigger a short boarding delay. Opinion-based questions are in the <button id="debate-inline" type="button">Debate lounge</button> and do not affect scores.</p><span class="strip-code">GATE 15 · B2–C1</span></div>
+    </main>
+
+    <footer class="footer"><span>THE TERMINAL <span aria-hidden="true">✦</span> LANGUAGE CONNECTS US</span><strong>Evangelia Domvrou - Teacher of English Language and Literature</strong></footer>
+  </div>
+
+  <dialog id="rules-dialog" class="dialog">
+    <div class="dialog-panel">
+      <button class="dialog-close" type="button" data-close="rules-dialog" aria-label="Close briefing">✕</button>
+      <div class="dialog-label">BOARDING ANNOUNCEMENT 001</div>
+      <h2>Ready for <em>take-off?</em></h2>
+      <p class="dialog-lead">This is a post-screening challenge. Expect film facts, vocabulary, character decisions and questions about what communication really means.</p>
+      <ol class="rule-list">
+        <li><span>01</span><div><strong>Choose your gate.</strong><p>Two teams. Fifteen different questions per team. Click a team name to rename it.</p></div></li>
+        <li><span>02</span><div><strong>Talk, then choose A or B.</strong><p>A correct answer gets you one point and moves you to the next boarding square.</p></div></li>
+        <li><span>03</span><div><strong>Miss it? Face a delay.</strong><p>The clue appears, a buzzer sounds, and your lane pauses briefly. Then try again.</p></div></li>
+        <li><span>04</span><div><strong>Clear 15 to become champions.</strong><p>The first team to finish earns the trophy, confetti, a spoken announcement and an original upbeat victory tune.</p></div></li>
+      </ol>
+      <div class="dialog-tip">🎛️ Audio is generated inside your browser. No music file, internet connection or streaming service is needed. Sound starts after a click.</div>
+      <div class="dialog-actions"><button id="fanfare-preview" class="secondary-btn" type="button">♫ Test the victory tune</button><button class="primary-btn" type="button" data-close="rules-dialog">Let's go →</button></div>
+    </div>
+  </dialog>
+
+  <dialog id="debate-dialog" class="dialog">
+    <div class="dialog-panel">
+      <button class="dialog-close" type="button" data-close="debate-dialog" aria-label="Close debate lounge">✕</button>
+      <div class="dialog-label">THE DEBATE LOUNGE <span>◆</span> NO WRONG ANSWERS</div>
+      <h2>Beyond the <em>movie.</em></h2>
+      <p class="dialog-lead">Use these as quick speaking rounds or a post-film reflection. Take a position, support it with a scene, and challenge the other team's reasoning.</p>
+      <div class="debate-card"><div class="debate-meta"><span id="debate-tag">ETHICS</span><span id="debate-count">01 / 08</span></div><p id="debate-prompt"></p><div class="debate-nudge">YOUR MISSION: MAKE A CLAIM + GIVE AN EXAMPLE</div></div>
+      <div class="dialog-actions between"><button id="debate-prev" class="secondary-btn" type="button">← Previous</button><button id="debate-next" class="primary-btn" type="button">Next card →</button></div>
+    </div>
+  </dialog>
+
+  <div id="winner-overlay" class="winner-overlay" hidden role="dialog" aria-modal="true" aria-labelledby="win-title">
+    <div id="confetti" class="confetti" aria-hidden="true"></div>
+    <div class="winner-panel"><div class="winner-pretitle">✦ FINAL BOARDING ANNOUNCEMENT ✦</div><div class="winner-cup" aria-hidden="true">🏆</div><h2 id="win-title">WE HAVE <em>TAKE-OFF!</em></h2><div id="win-team" class="win-team"></div><p>All 15 questions cleared. Your English is first class — and your team just won the terminal!</p><div id="win-scores" class="win-scores"></div><div class="winner-actions"><button id="replay" class="primary-btn" type="button">↻ New flight</button><button id="see-board" class="secondary-btn" type="button">View the board</button></div></div>
+  </div>
+  <div class="screenreader" id="announcer" role="status" aria-live="polite"></div>
+<!-- EDIT QUESTIONS IN THE JAVASCRIPT BELOW: SEARCH FOR "const questions" -->
+<script>
+(() => {
+  'use strict';
+
+  // EDIT THE QUIZ HERE: each q() has a prompt, two choices, a correct choice
+  // (0 = A, 1 = B), and the explanation shown after a team answers.
+  const q = (topic, type, prompt, optionA, optionB, correct, explanation) => ({topic,type,prompt,options:[optionA,optionB],correct,explanation});
+
+  const questions = [
+    [
+      q('THE STORY','CAUSE & EFFECT','What event turns Viktor Navorski’s arrival into a crisis?', 'A political coup in his home country', 'A missed connecting flight to London',0,'A coup in Krakozhia makes his travel documents unusable while he is en route.'),
+      q('GLOBAL ENGLISH','LANGUAGE','What makes Viktor’s first conversations at JFK especially difficult?', 'He refuses to speak to airport staff.', 'He initially understands very little English.',1,'His limited English makes an already confusing situation even harder.'),
+      q('IMMIGRATION','VOCABULARY','Viktor is stuck in “bureaucratic limbo.” What does limbo suggest?', 'A temporary state with no clear resolution', 'A legal right to live anywhere he wants',0,'He is caught between rules and jurisdictions without a clear solution.'),
+      q('SURVIVAL','SCENE SPOTTER','How does Viktor first find small amounts of money for food?', 'By selling airline tickets', 'By returning luggage trolleys for coins',1,'He collects the refunds from returned baggage carts.'),
+      q('POWER & RULES','CHARACTER','How does Frank Dixon initially regard Viktor?', 'As an administrative problem to remove', 'As a valuable new airport employee',0,'Dixon sees Viktor as a bureaucratic problem that threatens his orderly system.'),
+      q('GLOBAL ENGLISH','STRATEGY','What helps Viktor gradually understand more English?', 'Studying printed material and learning through daily encounters', 'Avoiding conversations until he can afford lessons',0,'Repeated exposure, observation and practice help him communicate.'),
+      q('FRIENDSHIP','CHARACTER','Why does Enrique seek Viktor’s help?', 'To pass messages to an immigration officer he likes', 'To arrange a secret flight out of the country',0,'Viktor acts as a go-between for Enrique and Dolores.'),
+      q('HUMAN CONNECTION','INFERENCE','What most helps Viktor earn the respect of airport workers?', 'His patience, honesty and helpfulness', 'His wealth and political influence',0,'His character builds trust despite the language barrier and lack of status.'),
+      q('THE CHARACTERS','QUICK CHECK','What is Amelia Warren’s occupation?', 'Journalist', 'Flight attendant',1,'Amelia works as a flight attendant and repeatedly crosses Viktor’s path.'),
+      q('BELONGING','SYMBOLISM','Over time, the terminal becomes more than a waiting area. It becomes…', 'a temporary home with relationships and routines.', 'an empty place where Viktor meets nobody.',0,'The airport develops into a small community in which Viktor finds belonging.'),
+      q('POLITICS','VOCABULARY','A “coup d’état” is…', 'the sudden overthrow of a government.', 'a routine election after a full term.',0,'A coup is a sudden seizure of political power, often by force.'),
+      q('AIRPORT SECURITY','ETHICAL CHOICE','In the medicine-for-a-“goat” scene, Viktor’s response highlights…', 'how empathy can challenge rigid procedures.', 'why every rule must be ignored.',0,'He creatively uses the paperwork distinction to help a distressed traveller; the scene raises ethical questions.'),
+      q('FAMILY','DETAIL','Which passion connects Viktor’s journey to his father?', 'Collecting football shirts', 'Collecting jazz musicians’ autographs',1,'Viktor wants to complete a collection his late father treasured.'),
+      q('GLOBAL ENGLISH','BIG IDEA','Which statement best fits Viktor’s experience with English?', 'Language can bridge differences, though kindness matters too.', 'Perfect grammar is the only way to earn respect.',0,'English helps him navigate the airport, but gestures, patience and solidarity matter as well.'),
+      q('THE ENDING','FINAL DESTINATION','Why does Viktor ultimately want to reach New York City?', 'To receive an award from airport security', 'To obtain Benny Golson’s autograph for his father',1,'He has come to collect the missing signature from jazz saxophonist Benny Golson.')
+    ],
+    [
+      q('THE SETTING','LOCATION','At which airport does most of The Terminal take place?', 'John F. Kennedy International Airport, New York', 'Heathrow Airport, London',0,'The story unfolds mainly at JFK in New York.'),
+      q('THE STORY','CAUSE & EFFECT','Why is returning home not a simple option for Viktor?', 'He has forgotten the name of his hometown.', 'The upheaval in Krakozhia disrupts his legal and travel situation.',1,'The political crisis leaves him unable to enter the US or simply travel home.'),
+      q('THE CHARACTERS','QUICK CHECK','What is Gupta Rajan’s job at the airport?', 'Air-traffic controller', 'Janitor / cleaner',1,'Gupta is the airport cleaner who gradually becomes Viktor’s friend.'),
+      q('AIRPORT ENGLISH','VOCABULARY','What is an “international transit lounge”?', 'An area used by travellers between international flights', 'A hotel that belongs to an airline captain',0,'It is the airport area where travellers may wait during international connections.'),
+      q('SURVIVAL','SCENE SPOTTER','Where does Viktor make himself a sleeping place?', 'In an unfinished area of the terminal', 'Inside an aircraft cockpit',0,'He settles in an area of the terminal that is being renovated.'),
+      q('GLOBAL ENGLISH','INFERENCE','What does Viktor’s language progress demonstrate?', 'People communicate only when they have an official certificate.', 'Daily practice and resourcefulness can build confidence.',1,'He improves through real-world interaction, trial and error, and determination.'),
+      q('THE CHARACTERS','WHO IS WHO','Who is Dolores Torres?', 'An immigration officer', 'A famous jazz singer',0,'Dolores works at immigration and becomes important to Enrique’s story.'),
+      q('FRIENDSHIP','CAUSE & EFFECT','Why does Enrique begin helping Viktor with food?', 'Viktor promises to buy the restaurant.', 'Viktor helps Enrique communicate with Dolores.',1,'Their exchange grows into a genuine friendship.'),
+      q('POWER & RULES','CHARACTER','What makes Dixon a source of conflict in the film?', 'He puts institutional control ahead of Viktor’s unusual circumstances.', 'He wants Viktor to become the airport’s manager.',0,'Dixon’s concern with rules and his career clashes with Viktor’s human situation.'),
+      q('THE MYSTERY','SCENE SPOTTER','What does Viktor keep in his much-discussed peanut tin?', 'A jazz-related photograph and his father’s autograph collection', 'A set of stolen airport access cards',0,'The keepsakes in the tin explain the personal purpose of his journey.'),
+      q('IDENTITY','VOCABULARY','In the film’s situation, “stateless” is closest to…', 'being on holiday without a suitcase.', 'lacking an effectively recognised nationality or travel status.',1,'Viktor’s papers cease to be recognised after the coup; the story dramatises this kind of legal uncertainty.'),
+      q('IMMIGRATION','ETHICAL CHOICE','Why does Viktor resist saying he is afraid to return to Krakozhia?', 'He refuses to claim fear of the place he calls home.', 'He cannot remember where Krakozhia is.',0,'He will not make a false statement about being afraid of his own home to obtain asylum.'),
+      q('LOYALTY','CHARACTER','How does Gupta help Viktor near the end?', 'By stopping a departing plane and buying Viktor time', 'By hiding Viktor inside the control tower',0,'Gupta takes a personal risk to help his friend pursue his goal.'),
+      q('BELONGING','SYMBOLISM','Why can the airport be seen as a miniature society?', 'Everyone in it has identical rights and experiences.', 'Different people, cultures, rules and friendships coexist there.',1,'The terminal contains inequality, diversity, work, relationships and informal communities.'),
+      q('THE ENDING','FINAL SCENE','After completing his mission in New York, what does Viktor intend to do?', 'Go home', 'Start a permanent career as an airport officer',0,'After obtaining the autograph, he prepares to return home.')
+    ]
+  ];
+
+  // Discussion prompts have no scored "correct" answer.
+  const debates = [
+    {tag:'GLOBAL COMMUNICATION',prompt:'Does speaking English give people more freedom — or does it sometimes create a new barrier? Use a scene to support your view.'},
+    {tag:'FAIRNESS & SECURITY',prompt:'Should airport officials ever bend a rule for someone in an exceptional situation? Where would you draw the line?'},
+    {tag:'IDENTITY',prompt:'Can a person belong to a community without legally belonging to its country? What does Viktor’s story suggest?'},
+    {tag:'FILM ANALYSIS',prompt:'Is Frank Dixon simply a villain, or is he a person trapped by his job and ambition? Defend your interpretation.'},
+    {tag:'LANGUAGE LEARNING',prompt:'Which helps Viktor most: English vocabulary, non-verbal communication, or kindness from others? Rank them and explain.'},
+    {tag:'ETHICAL DILEMMA',prompt:'Was Viktor right to reinterpret the medicine story in order to help another traveller? What might the risks be?'},
+    {tag:'IMMIGRATION',prompt:'How might the film change the way audiences think about people caught between borders and immigration systems?'},
+    {tag:'THE ENDING',prompt:'Is the ending mainly a victory for Viktor, or a bittersweet reminder of the months he lost? Justify your opinion.'}
+  ];
+
+  const initialTeams = [{name:'Global Voices',gate:'A',icon:'🌐'},{name:'The Navigators',gate:'B',icon:'🧭'}];
+  const STORAGE='terminal-movie-quiz-v1';
+  const board=document.getElementById('game-board');
+  const announcer=document.getElementById('announcer');
+  const overlay=document.getElementById('winner-overlay');
+  let audio=null;
+  let debateIndex=0;
+
+  const fresh=()=>({teams:initialTeams.map(t=>({name:t.name,index:0,retries:0,busy:false,result:null})),sound:true,winner:null,startedAt:null,finishedAt:null});
+  let game=fresh();
+  try{
+    const saved=JSON.parse(localStorage.getItem(STORAGE));
+    if(saved&&Array.isArray(saved.teams)&&saved.teams.length===2){
+      game.teams=saved.teams.map((t,i)=>({name:typeof t.name==='string'&&t.name.trim()?t.name.slice(0,32):initialTeams[i].name,index:Math.max(0,Math.min(15,Number.isInteger(t.index)?t.index:0)),retries:Math.max(0,Number.isInteger(t.retries)?t.retries:0),busy:false,result:null}));
+      game.sound=saved.sound!==false;
+      game.winner=Number.isInteger(saved.winner)&&saved.winner>=0&&saved.winner<2?saved.winner:null;
+      game.startedAt=Number.isFinite(saved.startedAt)?saved.startedAt:null;
+      game.finishedAt=Number.isFinite(saved.finishedAt)?saved.finishedAt:null;
+    }
+  }catch(_){/* Still playable when local storage is unavailable. */}
+  const save=()=>{try{localStorage.setItem(STORAGE,JSON.stringify({teams:game.teams,sound:game.sound,winner:game.winner,startedAt:game.startedAt,finishedAt:game.finishedAt}))}catch(_){}};
+  const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+  function tileHtml(team){return Array.from({length:15},(_,n)=>`<div class="tile ${n<team.index?'done':n===team.index?'current':''} ${n===14?'finish':''}" title="Checkpoint ${n+1}${n<team.index?' complete':''}"><span>${String(n+1).padStart(2,'0')}</span></div>`).join('')}
+  function questionHtml(team,i){
+    if(team.index===15)return `<div class="question-panel finished"><div class="finish-icon">🏅</div><h3>GATE CLEARED!</h3><p>All 15 questions answered correctly.<br>Your team is ready for take-off.</p></div>`;
+    const x=questions[i][team.index], locked=team.busy||game.winner!==null, r=team.result;
+    return `<div class="question-panel ${game.winner!==null?'frozen':''}">
+      <div class="question-top"><span class="question-type">${esc(x.type)}</span><span class="question-num">QUESTION ${String(team.index+1).padStart(2,'0')} / 15</span></div>
+      <span class="topic-label">${esc(x.topic)}</span><p class="question">${esc(x.prompt)}</p>
+      <div class="answers">${x.options.map((opt,k)=>`<button type="button" class="answer-btn ${r&&r.choice===k?(r.correct?'right':'wrong'):''}" data-answer="${i}:${k}" ${locked?'disabled':''}><span class="answer-key">${k===0?'A':'B'}</span><span>${esc(opt)}</span></button>`).join('')}</div>
+      ${r?`<div role="status" class="feedback ${r.correct?'':'bad'}"><strong>${r.correct?'✓ CLEARED — NICE WORK!':'⚠ BOARDING DELAY — TRY AGAIN!'}</strong>${esc(x.explanation)}</div>`:''}
+    </div>`;
+  }
+  function laneHtml(t,i){return `<article class="lane" data-team="${i}" aria-label="Gate ${initialTeams[i].gate}: ${esc(t.name)}">
+    <div class="lane-header"><div class="gate-identity"><div class="gate-icon" aria-hidden="true">${initialTeams[i].gate}</div><div><span class="gate-label">GATE ${initialTeams[i].gate} ${initialTeams[i].icon} / TEAM ${i+1}</span><input type="text" maxlength="32" class="team-name" aria-label="Rename team ${i+1}" title="Click to rename" data-name="${i}" value="${esc(t.name)}" /></div></div><div class="team-score" aria-label="${t.index} out of 15 points"><strong>${t.index}</strong><span>/ 15 POINTS</span></div></div>
+    <div class="lane-track"><div class="track-caption"><span>15 BOARDING CHECKPOINTS</span><b>🏁 FINISH</b></div><div class="tile-grid" aria-label="${t.index} checkpoints complete">${tileHtml(t)}</div></div>
+    <div class="question-wrap">${questionHtml(t,i)}</div>
+    <div class="lane-footer"><span>CHECKPOINTS CLEARED <strong>${t.index}/15</strong></span><span class="retry-count">DELAYS <b>${t.retries}</b></span></div>
+  </article>`}
+  function draw(){
+    board.innerHTML=game.teams.map(laneHtml).join('');
+    document.getElementById('total-score').textContent=String(game.teams.reduce((sum,t)=>sum+t.index,0));
+    const sound=document.getElementById('sound-toggle');
+    sound.innerHTML=`♫ <span>Sound ${game.sound?'on':'off'}</span>`;sound.setAttribute('aria-pressed',String(game.sound));
+    updateTimer();
+  }
+  function updateTimer(){
+    const end=game.finishedAt||Date.now();
+    const secs=game.startedAt?Math.max(0,Math.floor((end-game.startedAt)/1000)):0;
+    document.getElementById('timer').textContent=`${String(Math.floor(secs/60)).padStart(2,'0')}:${String(secs%60).padStart(2,'0')}`;
+  }
+  setInterval(updateTimer,1000);
+
+  // Original browser-generated audio. No commercial song or sound file is used.
+  function context(){
+    if(!game.sound)return null;
+    try{if(!audio)audio=new (window.AudioContext||window.webkitAudioContext)();if(audio.state==='suspended')audio.resume().catch(()=>{});return audio}catch(_){return null}
+  }
+  function tone(freq,start,duration,volume=.08,wave='triangle'){
+    const ctx=context();if(!ctx)return;
+    const osc=ctx.createOscillator(),amp=ctx.createGain();osc.type=wave;osc.frequency.setValueAtTime(freq,start);
+    amp.gain.setValueAtTime(.0001,start);amp.gain.exponentialRampToValueAtTime(volume,start+.018);amp.gain.exponentialRampToValueAtTime(.0001,start+duration);
+    osc.connect(amp);amp.connect(ctx.destination);osc.start(start);osc.stop(start+duration+.025);
+  }
+  function kick(start){
+    const ctx=context();if(!ctx)return;
+    const osc=ctx.createOscillator(),amp=ctx.createGain();osc.type='sine';osc.frequency.setValueAtTime(145,start);osc.frequency.exponentialRampToValueAtTime(45,start+.17);
+    amp.gain.setValueAtTime(.0001,start);amp.gain.exponentialRampToValueAtTime(.18,start+.006);amp.gain.exponentialRampToValueAtTime(.0001,start+.20);
+    osc.connect(amp);amp.connect(ctx.destination);osc.start(start);osc.stop(start+.21);
+  }
+  function hiHat(start){
+    const ctx=context();if(!ctx)return;
+    const len=.07,buffer=ctx.createBuffer(1,Math.ceil(ctx.sampleRate*len),ctx.sampleRate),data=buffer.getChannelData(0);
+    for(let i=0;i<data.length;i++)data[i]=(Math.random()*2-1);
+    const source=ctx.createBufferSource(),filter=ctx.createBiquadFilter(),gain=ctx.createGain();source.buffer=buffer;filter.type='highpass';filter.frequency.value=4600;
+    gain.gain.setValueAtTime(.055,start);gain.gain.exponentialRampToValueAtTime(.0001,start+len);
+    source.connect(filter);filter.connect(gain);gain.connect(ctx.destination);source.start(start);source.stop(start+len);
+  }
+  function correctSound(){const ctx=context();if(!ctx)return;const t=ctx.currentTime+.01;tone(523.25,t,.15,.055,'sine');tone(783.99,t+.09,.22,.09,'triangle');tone(1046.5,t+.2,.28,.06,'sine')}
+  function wrongSound(){const ctx=context();if(!ctx)return;const t=ctx.currentTime+.01;tone(293.66,t,.16,.045,'sawtooth');tone(246.94,t+.15,.24,.035,'sine')}
+  function victorySong(){
+    const ctx=context();if(!ctx)return;
+    const t=ctx.currentTime+.08,beat=60/132;
+    // Upbeat original synth-pop fanfare (not a recording or melody of a commercial song).
+    const melody=[[523.25,0,.66],[659.25,.75,.56],[783.99,1.5,.62],[880,2.25,.64],[783.99,3,.56],[1046.5,3.75,1.02],[987.77,5,.38],[1174.66,5.5,.42],[1318.51,6,1.45],
+      [1046.5,8,.45],[1174.66,8.5,.42],[1318.51,9,.5],[1567.98,9.75,1.9]];
+    melody.forEach(([f,b,d])=>tone(f,t+b*beat,d*beat,.10,'triangle'));
+    for(let b=0;b<12;b++){kick(t+b*beat);hiHat(t+(b+.5)*beat);if(b%2===1)hiHat(t+b*beat)}
+    const chords=[[0,[261.63,329.63,392]],[4,[349.23,440,523.25]],[8,[392,493.88,587.33]],[12,[523.25,659.25,783.99]]];
+    chords.forEach(([b,notes])=>notes.forEach(f=>tone(f,t+b*beat,4*beat-.03,.021,'sine')));
+    [523.25,659.25,783.99,1046.5].forEach(f=>tone(f,t+12*beat,1.4,.055,'triangle'));
+  }
+  function speak(name){if(!game.sound||!('speechSynthesis'in window))return;try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(`Attention, passengers! ${name} are our Terminal Challenge champions! Congratulations, you are cleared for take-off!`);u.lang='en-GB';u.rate=.97;u.pitch=1.13;u.volume=.85;setTimeout(()=>speechSynthesis.speak(u),1200)}catch(_){}}
+
+  function choose(i,choice){
+    const t=game.teams[i];if(!t||t.busy||t.index>=15||game.winner!==null)return;
+    if(!game.startedAt)game.startedAt=Date.now();context();
+    const x=questions[i][t.index],correct=choice===x.correct;
+    t.busy=true;t.result={choice,correct};
+    if(correct)correctSound();else{t.retries++;wrongSound()}
+    announcer.textContent=`${t.name}: ${correct?'Correct!':'Boarding delay. Read the clue and try again.'}`;
+    draw();save();
+    setTimeout(()=>{
+      t.busy=false;t.result=null;
+      if(correct)t.index++;
+      if(t.index===15&&game.winner===null){game.winner=i;game.finishedAt=Date.now();save();draw();showWinner()}else{save();draw()}
+    },correct?900:2300);
+  }
+  function confetti(){
+    const layer=document.getElementById('confetti');layer.innerHTML='';
+    const palette=['#67e4d3','#ff8fa3','#ffd167','#fff','#bba7ff','#70bafc'];
+    for(let i=0;i<62;i++){const e=document.createElement('i');e.className='confetti-bit';e.style.left=`${Math.random()*100}%`;e.style.background=palette[i%palette.length];e.style.borderRadius=i%4===0?'50%':'2px';e.style.animationDelay=`${-Math.random()*5}s`;e.style.animationDuration=`${3+Math.random()*2.3}s`;layer.appendChild(e)}
+  }
+  function showWinner(withSound=true){
+    if(game.winner===null)return;
+    const name=game.teams[game.winner].name;
+    document.getElementById('win-team').textContent=name;
+    document.getElementById('win-scores').innerHTML=game.teams.map((t,i)=>`<div class="win-score">GATE ${initialTeams[i].gate} · ${esc(t.name)} <strong>${t.index}/15</strong></div>`).join('');
+    confetti();overlay.hidden=false;document.getElementById('replay').focus();announcer.textContent=`${name} won the race!`;
+    if(withSound){victorySong();speak(name)}
+  }
+  function reset(){game=fresh();save();draw();overlay.hidden=true;if('speechSynthesis'in window)try{speechSynthesis.cancel()}catch(_){};announcer.textContent='New flight ready. Good luck to both teams!'}
+  function openDialog(id){const d=document.getElementById(id);if(typeof d.showModal==='function')d.showModal();else d.setAttribute('open','')}
+  function drawDebate(){const d=debates[debateIndex];document.getElementById('debate-tag').textContent=d.tag;document.getElementById('debate-count').textContent=`${String(debateIndex+1).padStart(2,'0')} / ${String(debates.length).padStart(2,'0')}`;document.getElementById('debate-prompt').textContent=d.prompt}
+
+  board.addEventListener('click',e=>{const button=e.target.closest('[data-answer]');if(!button)return;const [i,choice]=button.dataset.answer.split(':').map(Number);choose(i,choice)});
+  board.addEventListener('input',e=>{const el=e.target.closest('[data-name]');if(!el)return;game.teams[Number(el.dataset.name)].name=el.value.slice(0,32);save()});
+  board.addEventListener('change',e=>{const el=e.target.closest('[data-name]');if(!el)return;const i=Number(el.dataset.name);game.teams[i].name=(el.value.trim()||initialTeams[i].name).slice(0,32);save();draw()});
+  document.getElementById('rules-open').addEventListener('click',()=>openDialog('rules-dialog'));
+  const openDebate=()=>{drawDebate();openDialog('debate-dialog')};
+  document.getElementById('debate-open').addEventListener('click',openDebate);document.getElementById('debate-inline').addEventListener('click',openDebate);
+  document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',()=>document.getElementById(b.dataset.close).close()));
+  document.querySelectorAll('.dialog').forEach(d=>d.addEventListener('click',e=>{if(e.target===d)d.close()}));
+  document.getElementById('debate-prev').addEventListener('click',()=>{debateIndex=(debateIndex-1+debates.length)%debates.length;drawDebate()});
+  document.getElementById('debate-next').addEventListener('click',()=>{debateIndex=(debateIndex+1)%debates.length;drawDebate()});
+  document.getElementById('sound-toggle').addEventListener('click',()=>{game.sound=!game.sound;if(game.sound)context();save();draw()});
+  document.getElementById('fanfare-preview').addEventListener('click',()=>{if(!game.sound){game.sound=true;save();draw()}context();victorySong()});
+  document.getElementById('view-toggle').addEventListener('click',()=>{const compact=!document.body.classList.contains('board-view');document.body.classList.toggle('board-view',compact);const b=document.getElementById('view-toggle');b.innerHTML=`▣ <span>${compact?'Full view':'Board view'}</span>`;b.setAttribute('aria-pressed',String(compact));window.scrollTo({top:0,behavior:'smooth'})});
+  document.getElementById('reset-open').addEventListener('click',()=>{if(confirm('Restart this flight? Both teams will lose their scores.'))reset()});
+  document.getElementById('replay').addEventListener('click',reset);
+  document.getElementById('see-board').addEventListener('click',()=>{overlay.hidden=true;document.getElementById('reset-open').focus()});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!overlay.hidden){overlay.hidden=true;document.getElementById('reset-open').focus()}});
+
+  draw();if(game.winner!==null)showWinner(false);
+})();
+
+</script>
+</body>
+</html>
